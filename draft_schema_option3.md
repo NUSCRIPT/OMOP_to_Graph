@@ -1,6 +1,6 @@
 # Schema Draft
 
-## Option 3
+## Option 3 (v2)
 
 ### Feedback
 
@@ -8,11 +8,9 @@
 
 ### Design
 
-This draft continues to ignore PROVIDER entirely, but most likely will be revised to include it in the next revision.  I'm trying to figure out what questions there may be that actually require knowing the provider.  I think most often we want to know that something occurred at the same visit (so the link to VISIT_OCCURRENCE is important), but it doesn't matter who actually did it.
-
-The counter to this may be if we need to know that something was done by a provider of a specific specialty.  If that is the case, note that we don't have that data loaded for PROVIDER so it would have to be loaded before we could model this.
-
 In this version, we have moved from the "edge-heavy" approach in [Option 2] to one that is more optimized.  Here we have a node for each occurrence/exposure of some clinical action.  This means we have `*_OCCURRENCE` or `*_EXPOSURE` nodes for (`PROCEDURE`, `MEASUREMENT`, `OBSERVATION`, `CONDITION`, `DRUG`).  Each of these is related to a node that represents the specific higher level concepts (e.g., a node that is the concept of T2DM, not a single instance of it).
+
+We now include `PROVIDER` as well, noting that a provider can be associated optionally with each data element.  The relationship names for `PROVIDER` are not the same, but are based on the descriptions in the [OMOP CDM](https://github.com/OHDSI/CommonDataModel/wiki).
 
 **NOTE**
 > We have diagrammed each concept (left-most and right-most sides of figure) as their own nodes in this schema.  We are considering initially to use a single `CONCEPT` node to represent every concept, and evaluate performance.  If we find that there are issues, we will look to split the concepts into data element-specific nodes.  For now, consider those multiple nodes to actually collapse under a single `CONCEPT` node label.
@@ -44,7 +42,7 @@ Because we often want to aggregate things to a single encounter (visit), we have
     <span class="caption">ETHNICITY</span><dl class="properties"><dt>ethnicity_concept_id</dt><dd>''</dd><dt>ethnicity_concept_name</dt><dd>''</dd></dl></li>
   <li class="node" data-node-id="6" data-x="371.4498876535569" data-y="210.14233223667327">
     <span class="caption">CONDITION_OCCURRENCE</span><dl class="properties"><dt>condition_occurrence_id</dt><dd>''</dd><dt>condition_start_datetime</dt><dd>''</dd></dl></li>
-  <li class="node" data-node-id="7" data-x="-882.9805330116853" data-y="-25.180772516338912">
+  <li class="node" data-node-id="7" data-x="993.4215557793323" data-y="210.14233223667327">
     <span class="caption">PROVIDER</span><dl class="properties"><dt>provider_id</dt><dd>''</dd></dl></li>
   <li class="node" data-node-id="8" data-x="371.4498876535569" data-y="-267.60673018804135">
     <span class="caption">PROCEDURE_OCCURRENCE</span><dl class="properties"><dt>procedure_occurrence_id</dt><dd>''</dd><dt>procedure_datetime</dt><dd>''</dd></dl></li>
@@ -128,6 +126,24 @@ Because we often want to aggregate things to a single encounter (visit), we have
   </li>
   <li class="relationship" data-from="0" data-to="17">
     <span class="type">HAS_CONCEPT</span>
+  </li>
+  <li class="relationship" data-from="7" data-to="2">
+    <span class="type">ASSOCIATED_WITH</span>
+  </li>
+  <li class="relationship" data-from="7" data-to="6">
+    <span class="type">CAPTURED</span>
+  </li>
+  <li class="relationship" data-from="7" data-to="0">
+    <span class="type">INITIATED</span>
+  </li>
+  <li class="relationship" data-from="7" data-to="8">
+    <span class="type">RESPONSIBLE_FOR</span>
+  </li>
+  <li class="relationship" data-from="7" data-to="9">
+    <span class="type">RESPONSIBLE_FOR</span>
+  </li>
+  <li class="relationship" data-from="7" data-to="10">
+    <span class="type">RESPONSIBLE_FOR</span>
   </li>
 </ul>
 ```
