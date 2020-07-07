@@ -1,6 +1,12 @@
 # Schema Draft
 
-## Option 1
+## Option 2
+
+### Feedback
+
+2020-07-07 - this is not an optimal design for a graph schema.  It over-utilizes edges to represent the data, and should be ignored.  Discussion on this design resulted in [Schema Draft 3](draft_schema_option3.md)
+
+### Design
 
 In this approach, I am ignoring PROVIDER entirely.  This is perhaps being lazy, but I'm trying to figure out what questions there may be that actually require knowing the provider.  I think most often we want to know that something occurred at the same visit (so the link to VISIT_OCCURRENCE is important), but it doesn't matter who actually did it.
 
@@ -14,9 +20,11 @@ Because a visit is optional, we are also directly assigning relationships betwee
 
 
 ### Diagram
-![Schema Draft 1](./figures/lrasmus_schema_option1.svg)
+![Schema Draft 2](./figures/draft_schema_option2.svg)
 
 ### Arrow Markup
+
+[For use in Arrow](http://www.apcjones.com/arrows/#)
 
 ```
 <ul class="graph-diagram-markup" data-internal-scale="2.27" data-external-scale="1">

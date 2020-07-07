@@ -1,3 +1,19 @@
+# Schema Draft
+
+## Option 1
+
+### Feedback
+
+
+
+### Diagram
+![Schema Draft 1](./figures/draft_schema_option1.svg)
+
+### Arrow Markup
+
+[For use in Arrow](http://www.apcjones.com/arrows/#)
+
+```
 <ul class="graph-diagram-markup" data-internal-scale="0.87" data-external-scale="1">
   <li class="node" data-node-id="0" data-x="-796.3417450319076" data-y="488.7529779140516">
     <span class="caption">Provider</span><dl class="properties"><dt>id</dt><dd>0001</dd><dt>name</dt><dd>James</dd><dt>gender</dt><dd>Male</dd></dl></li>
@@ -47,3 +63,4 @@
   <li class="relationship" data-from="2" data-to="8">
     <span class="type">HAS_PROCEDURE_OCCURRENCE</span><dl class="properties"><dt>datetime</dt><dd>01-01-2090</dd></dl></li>
 </ul>
+```
