@@ -4,6 +4,10 @@ In this version, we added the Domain, Vocabulary, ConceptClass to the schema. we
 ### Diagram
 ![v4 schema](https://raw.githubusercontent.com/NUSCRIPT/OMOP_to_Graph/master/figures/omop_schema_v4.svg?token=AG5FZH2CTSA6UPUK7ZR3PSC7QX6ME)
 
+[link to hiarchic view without properties](https://github.com/NUSCRIPT/OMOP_to_Graph/blob/master/figures/omop_hiarchic01.png)
+
+[link to hiarchic view with properties](https://github.com/NUSCRIPT/OMOP_to_Graph/blob/master/figures/omop_hiarchic.png)
+
 **Arrows Markdown**
 [For use in Arrow](http://www.apcjones.com/arrows/#)
 
