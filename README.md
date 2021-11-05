@@ -10,8 +10,9 @@ Transform the [OMOP](https://github.com/OHDSI/CommonDataModel/wiki) CDM to graph
 
 
 ## Create the neo4j database from a relational database instructions
-1. Use [neo4j drivers](https://neo4j.com/developer/language-guides/#neo4j-drivers) and embedd the cypher code into your scripts, either Python, Java, JavaScript .etc
-2. Use Cypher shell to run the code directly in the terminal - more information [here](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/)
+1. Create a local or cloud Neo4j database - more information [here](https://neo4j.com/cloud/aura/?ref=nav-get-started-cta)
+2. Use [neo4j drivers](https://neo4j.com/developer/language-guides/#neo4j-drivers) and embedd the cypher code into your scripts, either Python, Java, JavaScript .etc
+3. Use Cypher shell to run the code directly in the terminal - more information [here](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/)
   Steps:
    - Go to the local bin folder
    - ./cypher-shell -a [your-server-link]:[your-port-number] -u [your-username]
