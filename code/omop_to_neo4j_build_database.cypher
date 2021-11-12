@@ -1,3 +1,4 @@
+// ---- database cleaning ---- //
 // call apoc.periodic.iterate("MATCH (n) return n", "DETACH DELETE n", {batchSize:10000})
 // yield batches, total return batches, total
 
@@ -86,7 +87,13 @@ CREATE INDEX cond FOR (c:Condition) ON (c.condition_occurrence_id);
 CREATE INDEX proc FOR (p:ProcedureOccurrence) ON (p.procedure_occurrence_id);
 
 
+//below codes are used for loading from SQL database, to load from csv files, please use example below-
 
+// call apoc.periodic.iterate('call apoc.load.csv("file:your-file-path") 
+// yield map as row
+// return row
+// ','
+// create (c:VisitOccurrence) set c=row', {batchSize:10000, iterateList:True, parallel:True})
 
 
 
