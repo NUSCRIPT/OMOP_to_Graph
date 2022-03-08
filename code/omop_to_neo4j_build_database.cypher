@@ -76,15 +76,6 @@ CREATE CONSTRAINT ON (p:ProcedureOccurrence) ASSERT p.procedure_occurrence_id IS
 create constraint on (c:Concept) Assert c.concept_id is unique;
 
 
-  //-----------------------create index for loading rels -----------------------//
-CREATE INDEX person FOR (p:Person) ON (p.person_id);
-CREATE INDEX meas FOR (m:Measurement) ON (m.measurement_id);
-CREATE INDEX drug FOR (d:DrugExposure) ON (d.drug_exposure_id;
-CREATE INDEX visit FOR (v:VisitOccurrence) ON (v.visit_occurrence_id);
-CREATE INDEX prov FOR (p1:Provider) ON (p1.provider_id);
-CREATE INDEX obs FOR (o:Observation) ON (o.observation_id);
-CREATE INDEX cond FOR (c:Condition) ON (c.condition_occurrence_id);
-CREATE INDEX proc FOR (p:ProcedureOccurrence) ON (p.procedure_occurrence_id);
 
 
 //below codes are used for loading from SQL database, to load from csv files, please use example below-
