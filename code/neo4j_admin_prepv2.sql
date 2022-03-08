@@ -43,7 +43,7 @@ from omop.condition_occurrence
 
 ------------- has_condition ---------------
 
-select distinct  person_id as [:START_ID(Person)], condition_concept_id as [:END_ID(ConditionOccurrence)], condition_occurrence_id, condition_type_concept_id, condition_type_concept_name, 'HAS_CONDITION_OCCURRENCE' as [:TYPE]
+select distinct  person_id as [:START_ID(Person)], condition_concept_id as [:END_ID(ConditionOccurrence)], condition_occurrence_id, condition_type_concept_id, condition_type_concept_name, condition_start_date, condition_end_date, 'HAS_CONDITION_OCCURRENCE' as [:TYPE]
 from omop.condition_occurrence
 
 
