@@ -15,8 +15,8 @@ Transform the [OMOP](https://github.com/OHDSI/CommonDataModel/wiki) CDM to graph
 3. Use Cypher shell to run the code directly in the terminal - more information [here](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/)\
   Steps:
    - Go to the local bin folder
-   - ./cypher-shell -a [your-server-link]:[your-port-number] -u [your-username]
-   - Copy paste the [code](https://github.com/NUSCRIPT/OMOP_to_Graph/blob/master/code/omop_to_neo4j_build_database.cypher) you want to load
+   - `./cypher-shell -a [your-server-link]:[your-port-number] -u [your-username]`
+   - Copy paste the [code](https://github.com/NUSCRIPT/OMOP_to_Graph/blob/master/code/omop_to_neo4j_build_database.cypher) you want to load or use `:source import/your_cypher_file.cypher` that contains the loading code
 
 
 ## Build database with neo4j-admin import
@@ -48,5 +48,5 @@ proc.csv\
 race.csv\
 visit.csv\
 2. run the command below in the Neo4j database shell\
-./bin/neo4j-admin import --database [database_name] --nodes=Person=import/person.csv --nodes=Measurement=import/meas.csv --nodes=VisitOccurrence=import/visit.csv --nodes=ConditionOccurrence=import/cond.csv --nodes=DrugExposure=import/drug.csv --nodes=Observation=import/obs.csv  --nodes=ObservationPeriod=import/obs_period.csv  --nodes=ProcedureOccurrence=import/proc.csv --nodes=Race=import/race.csv --nodes=Gender=import/gender.csv --nodes=Ethnicity=import/eth.csv --relationships=HAS_MEASUREMENT=import/has_meas.csv --relationships=ASSOCIATED_DURING_VISIT=import/meas_visit.csv, import/cond_visit.csv, import/drug_visit.csv, import/proc_visit.csv, import/obs_visit.csv --relationships=HAS_CONDITION_OCCURRENCE=import/has_cond.csv --relationships=HAS_DRUG_EXPOSURE=import/has_drug.csv  --relationships=HAS_PROCEDURE_OCCURRENCE=import/has_proc.csv --relationships=HAS_VISIT=import/has_visit.csv --relationships=HAS_OBSERVATION=import/has_obs.csv  --relationships=HAS_OBSERVATION_PERIOD=import/has_obs_period.csv --relationships=HAS_Gender=import/has_gender.csv --relationships=HAS_race=import/has_race.csv --relationships=HAS_ETHNICITY=import/has_eth.csv --ignore-empty-strings
+`./bin/neo4j-admin import --database [database_name] --nodes=Person=import/person.csv --nodes=Measurement=import/meas.csv --nodes=VisitOccurrence=import/visit.csv --nodes=ConditionOccurrence=import/cond.csv --nodes=DrugExposure=import/drug.csv --nodes=Observation=import/obs.csv  --nodes=ObservationPeriod=import/obs_period.csv  --nodes=ProcedureOccurrence=import/proc.csv --nodes=Race=import/race.csv --nodes=Gender=import/gender.csv --nodes=Ethnicity=import/eth.csv --relationships=HAS_MEASUREMENT=import/has_meas.csv --relationships=ASSOCIATED_DURING_VISIT=import/meas_visit.csv, import/cond_visit.csv, import/drug_visit.csv, import/proc_visit.csv, import/obs_visit.csv --relationships=HAS_CONDITION_OCCURRENCE=import/has_cond.csv --relationships=HAS_DRUG_EXPOSURE=import/has_drug.csv  --relationships=HAS_PROCEDURE_OCCURRENCE=import/has_proc.csv --relationships=HAS_VISIT=import/has_visit.csv --relationships=HAS_OBSERVATION=import/has_obs.csv  --relationships=HAS_OBSERVATION_PERIOD=import/has_obs_period.csv --relationships=HAS_Gender=import/has_gender.csv --relationships=HAS_race=import/has_race.csv --relationships=HAS_ETHNICITY=import/has_eth.csv --ignore-empty-strings`
 
