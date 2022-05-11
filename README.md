@@ -11,15 +11,17 @@ Transform the [OMOP](https://github.com/OHDSI/CommonDataModel/wiki) CDM to graph
 
 ## Create the neo4j database from a relational database instructions
 1. Create a local or cloud Neo4j database - more information [here](https://neo4j.com/cloud/aura/?ref=nav-get-started-cta)
-2. Use [neo4j drivers](https://neo4j.com/developer/language-guides/#neo4j-drivers) and embedd the cypher code into your scripts, either Python, Java, JavaScript .etc
-3. Use Cypher shell to run the code directly in the terminal - more information [here](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/)\
+2. Use [neo4j drivers](https://neo4j.com/developer/language-guides/#neo4j-drivers) and embedd the cypher [code](https://github.com/NUSCRIPT/OMOP_to_Graph/blob/master/code/omop_to_neo4j_build_database.cypher) into your scripts, either Python, Java, JavaScript .etc\
+OR\
+Use Cypher shell to run the code directly in the terminal - more information [here](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/)\
   Steps:
    - Go to the local bin folder
    - `./cypher-shell -a [your-server-link]:[your-port-number] -u [your-username]`
    - Copy paste the [code](https://github.com/NUSCRIPT/OMOP_to_Graph/blob/master/code/omop_to_neo4j_build_database.cypher) you want to load or use `:source import/your_cypher_file.cypher` that contains the loading code
 
 
-## Build database with neo4j-admin import
+## Build database with [neo4j-admin import](https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/)
+(fastest import method, works for empty database,datasets in CSV format) 
 1. Prepare datasets with the sql [code](https://github.com/NUSCRIPT/OMOP_to_Graph/tree/master/code) from OMOP relational database and save as CSV files as below\
 cond_visit.csv\
 cond.csv\
