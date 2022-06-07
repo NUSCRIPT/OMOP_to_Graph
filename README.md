@@ -1,15 +1,17 @@
 # OMOP_to_Graph
 Transform the [OMOP](https://github.com/OHDSI/CommonDataModel/wiki) CDM to graph model
 
-## Draft Schemas
+## 1. Draft Schemas
 
 1. [Schema Draft 1](Draft_schema.md)
 1. [Schema Draft 2](draft_schema_option2.md)  **[ Exclude ]**
 1. [Schema Draft 3](draft_schema_option3.md) [ To review ]
 4. [Schema Draft 4](draft_schema_option4.md) **[Finalized version for AMIA submission]**
 
+## 2. Multiple ways to load data and build the database in seconds to minutes -
 
-## Create the neo4j database from a relational database instructions
+### 2.1 Create the neo4j database directly from a relational database instructions
+(This method is only recommended for small to medium sized database, as the JDBC connection can get timeout when loading too much data in one transaction - in general it is a good practice to preprocess the data and then load into Neo4j)
 1. Create a local or cloud Neo4j database - more information [here](https://neo4j.com/cloud/aura/?ref=nav-get-started-cta)
 2. Use [neo4j drivers](https://neo4j.com/developer/language-guides/#neo4j-drivers) and embedd the cypher [code](https://github.com/NUSCRIPT/OMOP_to_Graph/blob/master/code/omop_to_neo4j_build_database.cypher) into your scripts, either Python, Java, JavaScript .etc\
 OR\
@@ -20,8 +22,8 @@ Use Cypher shell to run the code directly in the terminal - more information [he
    - Copy paste the [code](https://github.com/NUSCRIPT/OMOP_to_Graph/blob/master/code/omop_to_neo4j_build_database.cypher) you want to load or use `:source import/your_cypher_file.cypher` that contains the loading code
 
 
-## Build database with [neo4j-admin import](https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/)
-(fastest import method, works for empty database,datasets in CSV format) 
+### 2.2 Build database with [neo4j-admin import](https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/)
+(fastest import method, only works for empty database,datasets in CSV format) 
 1. Prepare datasets with the sql [code](https://github.com/NUSCRIPT/OMOP_to_Graph/tree/master/code) from OMOP relational database and save as CSV files as below\
 cond_visit.csv\
 cond.csv\
