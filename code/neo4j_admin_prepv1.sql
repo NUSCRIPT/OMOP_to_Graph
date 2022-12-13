@@ -12,9 +12,8 @@ on op.person_id = cp.cohort_patient_id
 ------------- lab ---------------
 SELECT distinct measurement_concept_id as [measurement_concept_id:ID(Measurement)], measurement_concept_name--, unit_concept_id, unit_concept_name
 from omop.measurement
-where unit_concept_id is not null
-and unit_concept_name is not null
-order by measurement_concept_id asc
+where value_as_number is not null
+
 -- there are still duplicates in labs table even when wiping out the null values in unit
 -- move the units fields to edge attributes
 
@@ -28,6 +27,7 @@ from omop.visit_occurrence
 select distinct  person_id as [:START_ID(Person)],  measurement_concept_id as [:END_ID(Measurement)], measurement_id,measurement_date ,unit_concept_id, unit_concept_name, value_as_number, 'HAS_MEASUREMENT' as [:TYPE]
 from omop.measurement m
 where value_as_number is not null
+
 
 
 
@@ -113,5 +113,4 @@ from omop.person
 ------------- has_gender ---------------
 select distinct person_id as [:START_ID(Person)], gender_concept_id as [:END_ID(Gender)]
 from omop.person
-
 
