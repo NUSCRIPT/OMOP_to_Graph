@@ -1,0 +1,1 @@
+\copy (select distinct p.person_id as ":START_ID(Person)", p.observation_period_id as ":END_ID(ObservationPeriod)", 'HAS_OBSERVATION_PERIOD' as ":TYPE" from public.observation_period as p) to 'has_obs_period.csv' WITH CSV HEADER;

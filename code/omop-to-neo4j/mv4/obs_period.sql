@@ -1,0 +1,1 @@
+\copy (select distinct observation_period_id as "observation_period_id:ID(ObservationPeriod)", pt.concept_name as period_type_concept_name, period_type_concept_id, observation_period_start_date, observation_period_end_date from public.observation_period op left join public.concept pt on period_type_concept_id = pt.concept_id) to 'obs_period.csv' WITH CSV HEADER;
