@@ -1,0 +1,1 @@
+\copy (SELECT distinct procedure_occurrence_id as "procedure_occurrence_id:ID(ProcedureOccurrence)", pc.concept_name as procedure_concept_name, procedure_date from public.procedure_occurrence c left join public.concept pc on pc.concept_id = c.procedure_concept_id) to 'procedure.csv' WITH CSV HEADER;

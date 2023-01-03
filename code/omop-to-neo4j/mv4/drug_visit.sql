@@ -1,0 +1,1 @@
+\copy (select distinct drug_exposure_id as ":START_ID(DrugExposure)", d.visit_occurrence_id as ":END_ID(VisitOccurrence)", 'ASSOCIATED_DURING_VISIT' as ":TYPE" from public.drug_exposure d) to 'drug_visit.csv' WITH CSV HEADER;

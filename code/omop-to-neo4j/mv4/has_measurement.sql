@@ -1,0 +1,1 @@
+\copy (select distinct person_id as ":START_ID(Person)", measurement_id as ":END_ID(Measurement)", 'HAS_MEASUREMENT' as ":TYPE" from public.measurement m where value_as_number is not null) to 'has_measurement.csv' WITH CSV HEADER;

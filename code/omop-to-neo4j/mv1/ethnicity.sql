@@ -1,0 +1,1 @@
+\copy (select distinct ethnicity_concept_id as "ethnicity_concept_id:ID(Ethnicity)", eco.concept_name as ethnicity_concept_name from public.person c left join public.concept eco on eco.concept_id = c.ethnicity_concept_id) to 'ethnicity.csv' WITH CSV HEADER;

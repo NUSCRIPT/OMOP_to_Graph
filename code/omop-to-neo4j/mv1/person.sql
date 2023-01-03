@@ -1,0 +1,1 @@
+﻿\copy (select distinct person_id as "person_id:ID(Person)", year_of_birth, person_id AS patient_ir_id FROM public.person) to 'person.csv' WITH CSV HEADER;

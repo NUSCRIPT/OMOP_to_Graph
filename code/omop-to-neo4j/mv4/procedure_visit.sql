@@ -1,0 +1,1 @@
+\copy (SELECT distinct procedure_occurrence_id as ":START_ID(ProcedureOccurrence)", p.visit_occurrence_id as ":END_ID(VisitOccurrence)",'ASSOCIATED_DURING_VISIT' as ":TYPE" from public.procedure_occurrence p) to 'procedure_visit.csv' WITH CSV HEADER;

@@ -1,0 +1,1 @@
+\copy (select distinct condition_occurrence_id as "condition_occurrence_id:ID(ConditionOccurrence)", cc.concept_name as condition_concept_name, condition_concept_id, condition_start_date, condition_end_date from public.condition_occurrence c left join public.concept cc on cc.concept_id = c.condition_concept_id) to 'condition.csv' WITH CSV HEADER;

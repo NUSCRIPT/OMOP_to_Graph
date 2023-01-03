@@ -1,0 +1,1 @@
+\copy (select distinct condition_occurrence_id as ":START_ID(ConditionOccurrence)", c.visit_occurrence_id as ":END_ID(VisitOccurrence)", 'ASSOCIATED_DURING_VISIT' as ":TYPE" from public.condition_occurrence c) to 'condition_visit.csv' WITH CSV HEADER;

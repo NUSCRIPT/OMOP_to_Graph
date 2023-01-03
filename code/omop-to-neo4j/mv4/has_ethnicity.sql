@@ -1,0 +1,1 @@
+\copy (select distinct person_id as ":START_ID(Person)", ethnicity_concept_id as ":END_ID(Ethnicity)" from public.person) to 'has_ethnicity.csv' WITH CSV HEADER;

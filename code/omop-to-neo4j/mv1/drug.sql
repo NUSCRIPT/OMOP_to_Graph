@@ -1,0 +1,1 @@
+\copy (select distinct drug_concept_id as "drug_concept_id:ID(DrugExposure)", dc.concept_name as drug_concept_name from public.drug_exposure as c left join public.concept dc on dc.concept_id = c.drug_concept_id) to 'drug.csv' WITH CSV HEADER;

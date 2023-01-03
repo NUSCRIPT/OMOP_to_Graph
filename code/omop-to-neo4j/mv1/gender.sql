@@ -1,0 +1,1 @@
+\copy (select distinct gender_concept_id as "gender_concept_id:ID(Gender)", gc.concept_name as gender_concept_name from public.person c left join public.concept gc on gc.concept_id = c.gender_concept_id) to 'gender.csv' WITH CSV HEADER;

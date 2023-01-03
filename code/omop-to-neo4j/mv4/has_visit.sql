@@ -1,0 +1,1 @@
+\copy (select person_id as ":START_ID(Person)", visit_occurrence_id as ":END_ID(VisitOccurrence)", 'HAS_VISIT_OCCURRENCE' as ":TYPE" from public.visit_occurrence v) to 'has_visit.csv' WITH CSV HEADER;

@@ -1,0 +1,1 @@
+\copy (SELECT distinct visit_concept_id as "visit_concept_id:ID(VisitOccurrence)", vc.concept_name as visit_concept_name from public.visit_occurrence c left join public.concept vc on vc.concept_id = c.visit_concept_id) to 'visit.csv' WITH CSV HEADER;

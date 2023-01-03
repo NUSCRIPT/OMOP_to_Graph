@@ -1,0 +1,1 @@
+\copy (select distinct race_concept_id as "race_concept_id:ID(Race)", rc.concept_name as race_concept_name from public.person c left join public.concept rc on rc.concept_id = c.race_concept_id) to 'race.csv' WITH CSV HEADER;

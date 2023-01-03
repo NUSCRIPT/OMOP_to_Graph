@@ -1,0 +1,1 @@
+\copy (SELECT distinct observation_id as "observation_id:ID(Observation)", oc.concept_name as observation_concept_name, observation_date, observation_concept_id from public.observation c left join public.concept oc on oc.concept_id = c.observation_concept_id) to 'observation.csv' WITH CSV HEADER;
