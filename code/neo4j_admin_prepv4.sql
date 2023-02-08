@@ -79,7 +79,7 @@ from omop.drug_exposure d
 
 
 ------------- procedure ---------------
-SELECT distinct procedure_occurrence_id as [procedure_occurrence_id:ID(ProcedureOccurrence)], procedure_concept_name, procedure_date
+SELECT distinct procedure_occurrence_id as [procedure_occurrence_id:ID(ProcedureOccurrence)], procedure_concept_name, procedure_date, procedure_concept_id
 from omop.procedure_occurrence
 
 ------------- has_procedure ---------------
