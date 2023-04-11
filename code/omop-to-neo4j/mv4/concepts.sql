@@ -27,7 +27,7 @@ group by relationship_id
 -- 5	Maps to value	2
 -- 6	Contained in panel	6
 
-
+--------------------------------------------- HERE starts the CRITICAL DB OMOP vocabulary pull------------------------------------------------
 ------------- concept node ---------------
 select distinct concept_id as "concept_id:ID(Concept)", 
                 concept_name, 
