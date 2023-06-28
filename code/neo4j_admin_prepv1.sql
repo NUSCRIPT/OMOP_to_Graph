@@ -24,7 +24,7 @@ from omop.visit_occurrence
 
 
 ------------- has_measurement ---------------
-select distinct  person_id as [:START_ID(Person)],  measurement_concept_id as [:END_ID(Measurement)], ,visit_occurrence_id,measurement_id,measurement_date ,unit_concept_id, unit_concept_name, value_as_number, 'HAS_MEASUREMENT' as [:TYPE]
+select distinct  person_id as [:START_ID(Person)],  measurement_concept_id as [:END_ID(Measurement)],visit_occurrence_id,measurement_id,measurement_date ,unit_concept_id, unit_concept_name, value_as_number, 'HAS_MEASUREMENT' as [:TYPE]
 from omop.measurement m
 where value_as_number is not null
 
@@ -38,7 +38,7 @@ from omop.condition_occurrence
 
 ------------- has_condition ---------------
 
-select distinct  person_id as [:START_ID(Person)], condition_concept_id as [:END_ID(ConditionOccurrence)],,visit_occurrence_id, condition_occurrence_id, condition_type_concept_id, condition_type_concept_name, condition_start_date, condition_end_date,   'HAS_CONDITION_OCCURRENCE' as [:TYPE]
+select distinct  person_id as [:START_ID(Person)], condition_concept_id as [:END_ID(ConditionOccurrence)],visit_occurrence_id, condition_occurrence_id, condition_type_concept_id, condition_type_concept_name, condition_start_date, condition_end_date,   'HAS_CONDITION_OCCURRENCE' as [:TYPE]
 from omop.condition_occurrence
 
 
@@ -80,7 +80,7 @@ from omop.observation o
 select distinct period_type_concept_id as [period_type_concept_id:ID(ObservationPeriod)], op.period_type_concept_name
 from omop.observation_period op 
 ------------- has_obs_period ---------------
-select distinct p.person_id as [:START_ID(Person)], p.observation_period_id, p.period_type_concept_id as [:END_ID(ObservationPeriod)],visit_occurrence_id, p.observation_period_start_date, p.observation_period_end_date , 'HAS_OBSERVATION_PERIOD' as [:TYPE]
+select distinct p.person_id as [:START_ID(Person)], p.observation_period_id, p.period_type_concept_id as [:END_ID(ObservationPeriod)], p.observation_period_start_date, p.observation_period_end_date , 'HAS_OBSERVATION_PERIOD' as [:TYPE]
 from omop.observation_period as p
 
 
