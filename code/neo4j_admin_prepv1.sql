@@ -24,7 +24,7 @@ from omop.visit_occurrence
 
 
 ------------- has_measurement ---------------
-select distinct  person_id as [:START_ID(Person)],  measurement_concept_id as [:END_ID(Measurement)], measurement_id,measurement_date ,unit_concept_id, unit_concept_name, value_as_number, 'HAS_MEASUREMENT' as [:TYPE]
+select distinct  person_id as [:START_ID(Person)],  measurement_concept_id as [:END_ID(Measurement)], ,visit_occurrence_id,measurement_id,measurement_date ,unit_concept_id, unit_concept_name, value_as_number, 'HAS_MEASUREMENT' as [:TYPE]
 from omop.measurement m
 where value_as_number is not null
 
@@ -38,7 +38,7 @@ from omop.condition_occurrence
 
 ------------- has_condition ---------------
 
-select distinct  person_id as [:START_ID(Person)], condition_concept_id as [:END_ID(ConditionOccurrence)], condition_occurrence_id, condition_type_concept_id, condition_type_concept_name, condition_start_date, condition_end_date,   'HAS_CONDITION_OCCURRENCE' as [:TYPE]
+select distinct  person_id as [:START_ID(Person)], condition_concept_id as [:END_ID(ConditionOccurrence)],,visit_occurrence_id, condition_occurrence_id, condition_type_concept_id, condition_type_concept_name, condition_start_date, condition_end_date,   'HAS_CONDITION_OCCURRENCE' as [:TYPE]
 from omop.condition_occurrence
 
 
@@ -48,7 +48,7 @@ select distinct drug_concept_id as [drug_concept_id:ID(DrugExposure)],drug_conce
 from omop.drug_exposure as d
 
 ------------- has_drug ---------------
-select distinct person_id as [:START_ID(Person)], drug_concept_id as [:END_ID(DrugExposure)], drug_exposure_id, drug_type_concept_id, drug_type_concept_name, drug_exposure_start_date, 'HAS_DRUG_EXPOSURE' as [:TYPE]
+select distinct person_id as [:START_ID(Person)], drug_concept_id as [:END_ID(DrugExposure)],visit_occurrence_id, drug_exposure_id, drug_type_concept_id, drug_type_concept_name, drug_exposure_start_date, 'HAS_DRUG_EXPOSURE' as [:TYPE]
 from omop.drug_exposure
 where drug_exposure_start_date is not NULL
 and drug_exposure_end_datetime is not null
@@ -61,7 +61,7 @@ SELECT distinct procedure_concept_id as [procedure_concept_id:ID(ProcedureOccurr
 from omop.procedure_occurrence
 
 ------------- has_procedure ---------------
-select distinct person_id as [:START_ID(Person)], procedure_concept_id as [:END_ID(ProcedureOccurrence)], procedure_occurrence_id,procedure_date, 'HAS_PROCEDURE_OCCURRENCE' as [:TYPE]
+select distinct person_id as [:START_ID(Person)], procedure_concept_id as [:END_ID(ProcedureOccurrence)],visit_occurrence_id, procedure_occurrence_id,procedure_date, 'HAS_PROCEDURE_OCCURRENCE' as [:TYPE]
 from omop.procedure_occurrence
 
 
@@ -71,7 +71,7 @@ SELECT distinct observation_concept_id as [observation_concept_id:ID(Observation
 from omop.observation
 
 ------------- has_ observation ---------------
-select distinct o.person_id as [:START_ID(Person)], o.observation_concept_id as [:END_ID(Observation)], observation_date, observation_id, 'HAS_OBSERVATION' as [:TYPE]
+select distinct o.person_id as [:START_ID(Person)], o.observation_concept_id as [:END_ID(Observation)],visit_occurrence_id, observation_date, observation_id, 'HAS_OBSERVATION' as [:TYPE]
 from omop.observation o
 
 
@@ -80,7 +80,7 @@ from omop.observation o
 select distinct period_type_concept_id as [period_type_concept_id:ID(ObservationPeriod)], op.period_type_concept_name
 from omop.observation_period op 
 ------------- has_obs_period ---------------
-select distinct p.person_id as [:START_ID(Person)], p.observation_period_id, p.period_type_concept_id as [:END_ID(ObservationPeriod)], p.observation_period_start_date, p.observation_period_end_date , 'HAS_OBSERVATION_PERIOD' as [:TYPE]
+select distinct p.person_id as [:START_ID(Person)], p.observation_period_id, p.period_type_concept_id as [:END_ID(ObservationPeriod)],visit_occurrence_id, p.observation_period_start_date, p.observation_period_end_date , 'HAS_OBSERVATION_PERIOD' as [:TYPE]
 from omop.observation_period as p
 
 
