@@ -21,7 +21,7 @@ where value_as_number is not null
 -- move the units fields to edge attributes
 
 ------------- visit ---------------
-SELECT distinct visit_occurrence_id as [visit_occurrence_id:ID(VisitOccurrence)], visit_concept_name, visit_concept_id, visit_start_date, visit_end_date
+SELECT distinct visit_occurrence_id as [visit_occurrence_id:ID(VisitOccurrence)], visit_concept_name, visit_concept_id, visit_start_date, visit_end_date, visit_source_value
 from omop.visit_occurrence
 
 
