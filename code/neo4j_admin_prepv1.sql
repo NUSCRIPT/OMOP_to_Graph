@@ -85,7 +85,7 @@ from omop.observation_period as p
 
 
 ------------- has_visit ---------------
-select person_id as [:START_ID(Person)], visit_concept_id as [:END_ID(VisitOccurrence)], visit_occurrence_id, visit_start_date, visit_end_date, 'HAS_VISIT_OCCURRENCE' as [:TYPE]
+select person_id as [:START_ID(Person)], visit_concept_id as [:END_ID(VisitOccurrence)], visit_occurrence_id, visit_start_date, visit_end_date, visit_source_value, 'HAS_VISIT_OCCURRENCE' as [:TYPE]
 from omop.visit_occurrence v
 
 
