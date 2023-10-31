@@ -67,8 +67,8 @@ from omop.drug_exposure as d
 ------------- has_drug ---------------
 select distinct person_id as [:START_ID(Person)], drug_exposure_id as [:END_ID(DrugExposure)],'HAS_DRUG_EXPOSURE' as [:TYPE]
 from omop.drug_exposure
-where drug_exposure_start_date is not NULL
-and drug_exposure_end_datetime is not null
+--where drug_exposure_start_date is not NULL
+--and drug_exposure_end_datetime is not null
 
 
 ------------- drug_visit ---------------
