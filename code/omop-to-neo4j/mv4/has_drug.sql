@@ -1,1 +1,1 @@
-\copy (select distinct person_id as ":START_ID(Person)", drug_exposure_id as ":END_ID(DrugExposure)",'HAS_DRUG_EXPOSURE' as ":TYPE" from public.drug_exposure where drug_exposure_start_date is not NULL and drug_exposure_end_datetime is not null) to 'has_drug.csv' WITH CSV HEADER;
+\copy (select distinct person_id as ":START_ID(Person)", drug_exposure_id as ":END_ID(DrugExposure)",'HAS_DRUG_EXPOSURE' as ":TYPE" from public.drug_exposure) to 'has_drug.csv' WITH CSV HEADER;
