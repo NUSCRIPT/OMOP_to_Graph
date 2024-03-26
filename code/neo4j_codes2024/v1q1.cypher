@@ -1,0 +1,3 @@
+match path=(c:ConditionOccurrence)<-[r1:HAS_CONDITION_OCCURRENCE]-(p1:Person)-[r0:HAS_DRUG_EXPOSURE]->(d:DrugExposure)<-[r2:HAS_DRUG_EXPOSURE]-(p1:Person)-[r3:HAS_PROCEDURE_OCCURRENCE]->(p4:ProcedureOccurrence)
+where r1.visit_occurrence_id=r2.visit_occurrence_id and r2.visit_occurrence_id=r3.visit_occurrence_id and d.drug_concept_name = 'dexamethasone' and p4.procedure_concept_name contains 'chest' and c.condition_concept_name ='Spontaneous pneumothorax' 
+return path limit 10;
