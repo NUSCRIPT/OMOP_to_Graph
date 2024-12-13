@@ -1,5 +1,6 @@
 # OMOP_to_Graph
-Transform the [OMOP](https://github.com/OHDSI/CommonDataModel/wiki) CDM to graph model
+Transform the [OMOP](https://github.com/OHDSI/CommonDataModel/wiki) CDM to graph model\
+Manuscript published on 2024/12 - [Evolution of a Graph Model for the OMOP Common Data Model](https://pubmed.ncbi.nlm.nih.gov/39631779/)
 
 ## 1. Draft Schemas
 
